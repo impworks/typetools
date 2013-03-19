@@ -93,7 +93,7 @@ namespace TypeDistance
 		{
 			var methodArgs = method.GetParameters().Select(p => p.ParameterType);
 			var baseDist = methodArgs.First().DistanceFrom(type);
-			var argsDist = GetArgumentsDistance(methodArgs.Skip(1).ToArray(), args);
+			var argsDist = GetArgumentsDistance(args, methodArgs.Skip(1).ToArray());
 
 			try
 			{
