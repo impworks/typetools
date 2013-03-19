@@ -159,6 +159,9 @@ namespace TypeDistance
 			if (varType == exprType)
 				return 0;
 
+			if (varType.IsByRef)
+				return varType.GetElementType() == exprType ? 0 : int.MaxValue;
+
 			if (!exactly)
 			{
 				if (varType.IsNullableType() && exprType == Nullable.GetUnderlyingType(varType))
